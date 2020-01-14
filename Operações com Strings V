@@ -1,0 +1,21 @@
+# Faça um programa que leia um numero de 0 a 9999 e mostre na tela
+# cada um dos digitos separados
+# ex: Digite um numero 1834
+# unidades: 4, dezenas:3, centenas:8, milhar:1
+num = str(input('Entre com um numero de 0 a 9999:'))
+vet = []
+tam = 0
+for i in num:
+    tam += 1
+    vet.append(i)
+if tam == 1:
+    print('Unidades: {}'.format(vet[0]))
+elif tam == 2:
+    print('Dezenas: {}, Unidades: {}'.format((vet[0]), (vet[1])))
+elif tam == 3:
+    print('Centenas: {}, Dezenas: {}, Unidades: {}'.format((vet[0]), (vet[1]), (vet[2])))
+elif tam == 4:
+    print('Milhar: {}, Centenas: {}, Dezenas: {}, Unidades: {}'.format((vet[0]), (vet[1]), (vet[2]), (vet[3])))
+else:
+    print('Numero Inválido!!')
+
