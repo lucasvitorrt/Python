@@ -1,0 +1,11 @@
+#
+# Sorteio aleatório e probabilidade de acerto
+#
+from random import randrange
+i = j = cont = 0
+while j != 20:
+    j = randrange(1, 21)
+    print(j)
+    cont += 1
+print('Foram necessesárias {} iterações até o acerto!'.format(cont))
+print('Probabilidade de {:.4} % de acerto'.format((1/cont)*100))
