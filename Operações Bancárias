@@ -1,0 +1,60 @@
+## MAZE BANK ##
+# AUTHOR: Lucas V.
+# CRIAR UM ARQUIVO 'saldo.txt' EM BRANCO NA PASTA DO PROJETO.
+# PYTHON VERSION 3.7
+control = 1
+entrada_nome = 'WELCOME TO MAZE BANK'
+deposito_nome = 'DEPOSITO'
+saque_nome = 'SAQUE'
+saldo_nome = 'SALDO'
+while control:
+    print('{:-^40}'.format(''))
+    print('{:^40}'.format(entrada_nome))
+    s = ['Saque(1)', 'Saldo(2)', 'Deposito(3)', 'Sair(4)']
+    for i in s:
+        print('{0}'.format(i), end='  ')
+    op = str(input('\nOPERAÇÃO:'))
+    print('{:-^40}'.format(''))
+    if op == '4':
+        print('\nATÉ A PRÓXIMA !!')
+        control = 0
+        break
+    elif op == '2':
+        print('{:^40}'.format(saldo_nome))
+        saldo = open('saldo.txt', 'r')
+        arq_saldo = float(saldo.readline())
+        saldo.close()
+        print('Saldo: R$ {:.2f}'.format(arq_saldo))
+    elif op == '3':
+        print('{:^40}'.format(deposito_nome))
+        valor_deposito = input('VALOR DEPOSITO (0.00):')
+        if (',' in valor_deposito) or valor_deposito.isalpha():
+            print('\nVALOR INVÁLIDO!!')
+        else:
+            valor_deposito = float(valor_deposito)
+            deposito = open('saldo.txt', 'r')
+            conteudo_deposito = float(deposito.readline())
+            deposito.close()
+            valor_deposito_atual = valor_deposito + conteudo_deposito
+            deposito = open('saldo.txt', 'w')
+            deposito.write(str(valor_deposito_atual))
+            deposito.close()
+            print('DEPOSITO DE R$ {:.2f} REALIZADO COM SUCESSO!!'.format((valor_deposito)))
+    elif op == '1':
+        print('{:^40}'.format(saque_nome))
+        saque = open('saldo.txt', 'r')
+        conteudo_saque = float(saque.readline())
+        saque.close()
+        valor_saque = input('VALOR DO SAQUE (0.00):')
+        if (',' in valor_saque) or valor_saque.isalpha():
+            print('\nVALOR INVÁLIDO!!')
+        elif float(valor_saque) > conteudo_saque:
+            print('VOCÊ NÃO POSSUI SALDO SUFICIENTE!!')
+        else:
+            valor_saque = float(valor_saque)
+            saque = open('saldo.txt', 'w')
+            saque.write(str(conteudo_saque-valor_saque))
+            saque.close()
+            print('SAQUE DE R$ {:.2f} REALIZADO COM SUCESSO!!'.format(valor_saque))
+    else:
+        print('\nOPERAÇÃO INVÁLIDA, TENTE NOVAMENTE:')
