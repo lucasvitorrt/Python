@@ -3,7 +3,7 @@
 # O nome com todas as letras minusculas
 # Quantas letras ao total sem considerar os espaços
 # Quantas letras tem o primeiro nome
-nome = str(input('Entre com seu nome completo:'))
+nome = str(input('Entre com seu nome completo:')).strip()
 print('1 - ', nome.upper())
 print('2 - ', nome.lower())
 nome_split = nome.split()
