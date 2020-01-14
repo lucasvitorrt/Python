@@ -1,0 +1,8 @@
+# Crie um programa que leia o nome de uma pessoa e diga
+# se ela tem 'SILVA' no nome
+nome = str(input('Entre o seu nome:'))
+nome = nome.upper()
+if 'SILVA' in nome:
+    print('O seu nome possui SILVA!')
+else:
+    print('O seu nome NÃO possui SILVA!')
