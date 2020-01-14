@@ -1,7 +1,6 @@
 #
 # Adicionando elementos em um vetor
 #
-import random
 vet = []
 i = 0
 for i in range(5):
