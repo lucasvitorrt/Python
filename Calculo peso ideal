@@ -1,0 +1,22 @@
+#
+# Caclulo de peso ideal baseado na altura.
+#
+from sys import exit
+cond1 = 1
+while cond1 != 0:
+    escolha = str(input('Entre com o seu sexo(M/F): '))
+    escolha = escolha.upper()
+    if (escolha == 'M') or (escolha == 'F'):
+        break
+    else:
+        print('Sexo inválido, tente novamente!')
+altura = float(input('Entre com sua altura(cm): '))
+
+if escolha == 'M':
+    peso_ideal = (72.7 * (altura/100)) - 58
+    sexo = 'Masculino'
+elif escolha == 'F':
+    peso_ideal = (62.1*(altura/100)) - 44.7
+    sexo = 'Feminino'
+    exit(0)
+print('O peso ideal para o sexo {} com altura igual a {:.2f} metros é de {:.2f} Kg'.format((sexo), (altura/100), (peso_ideal)))
