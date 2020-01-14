@@ -1,0 +1,12 @@
+# Crie um programa que leia o nome completo da pessoa e mostre:
+# O nome com todas as letras maiusculas
+# O nome com todas as letras minusculas
+# Quantas letras ao total sem considerar os espaços
+# Quantas letras tem o primeiro nome
+nome = str(input('Entre com seu nome completo:'))
+print('1 - ', nome.upper())
+print('2 - ', nome.lower())
+nome_split = nome.split()
+nome = ''.join(nome_split)
+print('3 - ', len(nome))
+print('4 - ', len(nome_split[0]))
