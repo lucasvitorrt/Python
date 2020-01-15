@@ -1,0 +1,77 @@
+## MAZE BANK ##
+# AUTHOR: Lucas V.
+# CRIAR UM ARQUIVO 'saldo.txt' EM BRANCO NA PASTA DO PROJETO.
+control = 1
+entrada_nome = 'WELCOME TO MAZE BANK'
+deposito_nome = 'DEPOSITO'
+saque_nome = 'SAQUE'
+saldo_nome = 'SALDO'
+while control:
+    print('{:-^40}'.format(''))
+    print('{:^40}'.format(entrada_nome))
+    s = ['Saque(1)', 'Saldo(2)', 'Deposito(3)', 'Sair(4)']
+    for i in s:
+        print('{0}'.format(i), end='  ')
+    op = str(input('\nOPERAÇÃO:'))
+    print('{:-^40}'.format(''))
+    if op == '4':
+        print('\nATÉ A PRÓXIMA !!')
+        control = 0
+        break
+    elif op == '2':
+        print('{:^40}'.format(saldo_nome))
+        saldo = open('saldo.txt', 'r')
+        test_saldo = saldo.readlines()
+        if len(test_saldo) <= 0:
+            print('VOCE NÃO POSSUI SALDO!!')
+        else:
+            arq_saldo = test_saldo[len(test_saldo) - 1]
+            arq_saldo = float(arq_saldo)
+            saldo.close()
+            print('Saldo: R$ {:.2f}'.format(arq_saldo))
+    elif op == '3':
+        print('{:^40}'.format(deposito_nome))
+        valor_deposito = input('VALOR DEPOSITO (0.00):')
+        if (',' in valor_deposito) or valor_deposito.isalpha():
+            print('\nVALOR INVÁLIDO!!')
+        else:
+            valor_deposito = float(valor_deposito)
+            deposito = open('saldo.txt', 'r')
+            c_deposito = deposito.readlines()
+            if len(c_deposito) <= 0:
+                deposito = open('saldo.txt', 'w')
+                deposito.writelines(str(valor_deposito) + '\n')
+                deposito.close()
+                print('DEPOSITO DE R$ {:.2f} REALIZADO COM SUCESSO!!'.format(valor_deposito))
+            else:
+                conteudo_deposito = c_deposito[len(c_deposito)-1]
+                valor_deposito_atual = valor_deposito + float(conteudo_deposito)
+                c_deposito.append(str(valor_deposito_atual) + '\n')
+                deposito = open('saldo.txt', 'w')
+                deposito.writelines(c_deposito)
+                deposito.close()
+                print('DEPOSITO DE R$ {:.2f} REALIZADO COM SUCESSO!!'.format(valor_deposito))
+    elif op == '1':
+        print('{:^40}'.format(saque_nome))
+        saque = open('saldo.txt', 'r')
+        test_saque = saque.readlines()
+        if len(test_saque) <= 0:
+            print('VOCÊ NÃO POSSUI SALDO SUFICIENTE!!')
+        else:
+            conteudo_saque = test_saque[len(test_saque) - 1]
+            c_saque = float(conteudo_saque)
+            valor_saque = input('VALOR DO SAQUE (0.00):')
+            if (',' in valor_saque) or valor_saque.isalpha():
+                print('\nVALOR INVÁLIDO!!')
+            elif float(valor_saque) > c_saque:
+                print('VOCÊ NÃO POSSUI SALDO SUFICIENTE!!')
+            else:
+                valor_saque = float(valor_saque)
+                atualiza_saldo = c_saque - valor_saque
+                test_saque.append(str(atualiza_saldo) + '\n')
+                saque = open('saldo.txt', 'w')
+                saque.writelines(test_saque)
+                saque.close()
+                print('SAQUE DE R$ {:.2f} REALIZADO COM SUCESSO!!'.format(valor_saque))
+    else:
+        print('\nOPERAÇÃO INVÁLIDA, TENTE NOVAMENTE:')
