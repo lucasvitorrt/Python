@@ -1,0 +1,24 @@
+# coding=utf-8
+# Exercicio 3 - Desenvolva o jogo chamado “adivinhe-onúmero”: nesse jogo a pessoa pensa um
+# número entre 1 e 10000, seu programa “chuta” um número, a pessoa responde se o
+# número pensado é maior, menor ou igual. O programa faz um novo “chute” até acertar o
+# número correto.
+from random import randrange
+
+control = 1
+chute_minimo = 1
+chute_maximo = 10000
+
+def chutar(chute):
+    chute = randrange(chute_minimo, chute_maximo + 1)
+    return chute
+
+while control:
+    print('-- Adivinhe o Numero --\n')
+    numero = input('Pense em um numero de 1 a 10.000, o numero pensado foi?:')
+    print('\nSeu numero eh {} ?'.format(chute))
+    resp = str(input('Seu numero eh (maior / menor / igual)?:')).strip()
+    if chute == numero:
+        control = 0
+    elif 'maior' in resp:
+        print('eh maior')
