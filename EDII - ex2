@@ -1,0 +1,11 @@
+# coding=utf-8
+# Exercicio 2 - Implemente um programa para
+# inverter os elementos em um array
+
+array = [1, 2, 3, 4, 5]  # Array de exemplo.
+
+print(array)
+
+array.sort(reverse=True)
+
+print(array)
