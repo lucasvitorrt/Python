@@ -1,0 +1,17 @@
+# coding=utf-8
+# Exercicio 1 - Implementar o tipo abstrato de
+# dados arrays dinâmicos. Por array dinâmico entende-se  aquele onde deve se ter um
+# controle da quantidade de  elementos armazenados e que permita o aumento do tamanho
+# da memória alocada quando o espaço inicialmente reservado estiver completo.
+vetor = []
+controle = 1
+
+while controle:
+    escolha = str(input('Quantidade armazenada (1) Adicionar um elemento ao vetor(2)\nEscolha uma das operacoes:'))
+    if escolha == '1':
+        print ('A quantidade de elementos armazenada e: {}'.format(len(vetor)))
+    elif escolha == '2':
+        insere = input('Qual valor deseja adicionar:')
+        vetor.append(insere)
+    else:
+        print('Escolha invalida tente novamente!!')
