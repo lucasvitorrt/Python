@@ -1,11 +1,10 @@
 def size(seq):
     y = 1
     while y:
-        if len(seq) >= 0:
-            if 'AB' in seq:
-                seq = seq.replace('AB', '')
-            elif 'BB' in seq:
-                seq = seq.replace('BB', '')
-            else:
-                y = 0
+        if 'AB' in seq:
+            seq = seq.replace('AB', '')
+        elif 'BB' in seq:
+            seq = seq.replace('BB', '')
+        else:
+            y = 0
     return(len(seq))
