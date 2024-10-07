@@ -1,0 +1,18 @@
+'''A string is a pangram if it contains all letters of the English alphabet, ascii['a'-'z']. 
+Given a list of strings, determine if each one is a pangram or not. Return "1" if true and "0" if false.'''
+
+def isPangram(pangram):
+    check = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    n = len(pangram)
+    count = 0
+    ispangram = ''
+    for i in range(0, n):
+        for k in check:
+            if k in pangram[i]:
+                count+= 1
+        if count == 26:
+            ispangram = ispangram + '1'
+        else:
+            ispangram = ispangram + '0'
+        count = 0
+    return(str(ispangram))
